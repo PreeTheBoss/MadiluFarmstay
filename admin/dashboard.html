@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="file"], input[type="number"], button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .image-preview {
+            max-width: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+
+        <!-- Form to add a new image -->
+        <form id="addImageForm">
+            <div class="form-group">
+                <label for="imageFile">Add New Image:</label>
+                <input type="file" id="imageFile" accept="image/*">
+            </div>
+            <button type="submit">Add Image</button>
+        </form>
+
+        <!-- Form to update room name and price -->
+        <form id="updateRoomForm">
+            <div class="form-group">
+                <label for="roomName">Room Name:</label>
+                <input type="text" id="roomName" placeholder="Enter new room name">
+            </div>
+            <div class="form-group">
+                <label for="roomPrice">Room Price:</label>
+                <input type="number" id="roomPrice" placeholder="Enter new room price" step="0.01">
+            </div>
+            <button type="submit">Update Room Details</button>
+        </form>
+        
+        <!-- Display area for added images (mockup for functionality) -->
+        <div id="imageGallery">
+            <h3>Image Gallery:</h3>
+            <div id="galleryContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle image addition
+            const addImageForm = document.getElementById('addImageForm');
+            const galleryContainer = document.getElementById('galleryContainer');
+
+            addImageForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const fileInput = document.getElementById('imageFile');
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const img = document.createElement('img');
+                        img.src = event.target.result;
+                        img.classList.add('image-preview');
+                        galleryContainer.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Handle room update
+            const updateRoomForm = document.getElementById('updateRoomForm');
+            
+            updateRoomForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const roomName = document.getElementById('roomName').value;
+                const roomPrice = document.getElementById('roomPrice').value;
+
+                if (roomName && roomPrice) {
+                    alert(`Room details updated:\nName: ${roomName}\nPrice: $${roomPrice}`);
+                } else {
+                    alert('Please fill in both fields.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

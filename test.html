@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test EmailJS</title>
+</head>
+<body>
+    <form id="testForm">
+        <input type="text" id="testName" name="test_name" placeholder="Name" required>
+        <input type="email" id="testEmail" name="test_email" placeholder="Email" required>
+        <button type="submit">Send Test Email</button>
+    </form>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("gaJq6Vg5Q_TvQEhfn");
+
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            emailjs.send('Madilubooking', 'template_gxpiadx', {
+                test_name: document.getElementById('testName').value,
+                test_email: document.getElementById('testEmail').value
+            })
+            .then((response) => {
+                console.log('Success:', response);
+                alert('Test email sent successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Failed to send test email.');
+            });
+        });
+    </script>
+</body>
+</html>

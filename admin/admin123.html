@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <script>
+        // Debugging script to ensure JavaScript runs
+        console.log("Admin page script loaded");
+
+        window.onload = function() {
+            console.log("Page loaded, showing prompt");
+
+            // Prompt the user to enter the admin password
+            const password = prompt("Enter the admin password:");
+
+            // Log the entered password for debugging (remove in production)
+            console.log("Entered password:", password);
+
+            // Check if the entered password is correct
+            if (password === 'JesicaPree1223*') { // Replace 'yourpassword' with your actual password
+                console.log("Password correct, redirecting to dashboard");
+                window.location.href = 'dashboard.html'; // Path to your admin dashboard
+            } else {
+                console.log("Incorrect password, redirecting to home page");
+                alert('Incorrect password');
+                window.location.href = 'index.html'; // Redirect to home page or another page
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Admin Login</h2>
+    <!-- Message displayed if JavaScript is disabled or if the prompt fails -->
+    <p>Please use the correct password to access the admin dashboard.</p>
+</body>
+</html>

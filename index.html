@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmstay Booking</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="tel"], button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Farmstay Booking</h1>
+        
+        <!-- Image Carousel -->
+        <div class="carousel">
+            <div class="carousel-images">
+                <!-- Images to slide through -->
+                <img src="path/to/image1.jpg" alt="Farmstay Image 1">
+                <img src="path/to/image2.jpg" alt="Farmstay Image 2">
+                <img src="path/to/image3.jpg" alt="Farmstay Image 3">
+            </div>
+            <div class="carousel-controls">
+                <button id="prev">&lt;</button>
+                <button id="next">&gt;</button>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="container">
+            <h2>Book a Room</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="roomName">Room Name:</label>
+                    <input type="text" id="roomName" name="room_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomPrice">Room Price:</label>
+                    <input type="number" id="roomPrice" name="room_price" required>
+                </div>
+                <div class="form-group">
+                    <label for="numAdults">Number of Adults:</label>
+                    <input type="number" id="numAdults" name="num_adults" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="numChildren">Number of Children:</label>
+                    <input type="number" id="numChildren" name="num_children" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkinDate">Check-in Date:</label>
+                    <input type="date" id="checkinDate" name="checkin_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkoutDate">Check-out Date:</label>
+                    <input type="date" id="checkoutDate" name="checkout_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerName">Your Name:</label>
+                    <input type="text" id="customerName" name="customer_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Your Email:</label>
+                    <input type="email" id="customerEmail" name="customer_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Your Phone Number:</label>
+                    <input type="tel" id="customerPhone" name="customer_phone" pattern="[0-9]{10}" required>
+                </div>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            emailjs.init("gaJq6Vg5Q_TvQEhfn"); // Replace with your EmailJS User ID
+
+            document.addEventListener('DOMContentLoaded', () => {
+                // Image Carousel Functionality
+                const carouselImages = document.querySelector('.carousel-images');
+                const images = carouselImages.querySelectorAll('img');
+                const totalImages = images.length;
+                let currentIndex = 0;
+
+                document.getElementById('prev').addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalImages - 1;
+                    updateCarousel();
+                });
+
+                document.getElementById('next').addEventListener('click', () => {
+                    currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                });
+
+                function updateCarousel() {
+                    const offset = -currentIndex * 100;
+                    carouselImages.style.transform = `translateX(${offset}%)`;
+                }
+
+                // Booking Form Submission
+                const bookingForm = document.getElementById('bookingForm');
+
+                bookingForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const roomName = document.getElementById('roomName').value;
+                    const roomPrice = document.getElementById('roomPrice').value;
+                    const numAdults = document.getElementById('numAdults').value;
+                    const numChildren = document.getElementById('numChildren').value;
+                    const checkinDate = document.getElementById('checkinDate').value;
+                    const checkoutDate = document.getElementById('checkoutDate').value;
+                    const customerName = document.getElementById('customerName').value;
+                    const customerEmail = document.getElementById('customerEmail').value;
+                    const customerPhone = document.getElementById('customerPhone').value;
+
+                    emailjs.send('Madilubooking', 'template_vkpo877', {
+                        room_name: roomName,
+                        room_price: roomPrice,
+                        num_adults: numAdults,
+                        num_children: numChildren,
+                        checkin_date: checkinDate,
+                        checkout_date: checkoutDate,
+                        customer_name: customerName,
+                        customer_email: customerEmail,
+                        customer_phone: customerPhone
+                    })
+                    .then((response) => {
+                        console.log('Success:', response);
+                        alert('Booking request sent successfully!');
+                        bookingForm.reset();
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('Failed to send booking request.');
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
