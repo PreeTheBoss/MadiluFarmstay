@@ -197,8 +197,12 @@ saturated photography. This allows users to still see the elements in this secti
     margin: 0;
 }
 
-
-@media screen and (max-width: 1366px){
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+@media screen and (max-width:100%){
     .explore-button {
         font-size: 1.2em; 
     }
@@ -596,7 +600,7 @@ h3 {
         left: 50%;
         transform: translateX(-50%);
     }
-}
+
 
 /*--------------------------BOOKING-------------------------------*/
 .booking {
