@@ -1,0 +1,753 @@
+/*--------------------------FONTS-------------------------------*/
+/* Kaisei Tokumin Fonts is a Serif font used for titles and certain
+accents*/
+@font-face{
+    font-family: KaiseiTokumin;
+    src: url(../fonts/KaiseiTokumin-Regular.ttf);
+}
+
+/* MontSerrat is a Sans Serif font used for bodies of text*/
+@font-face{
+    font-family: MontSerrat;
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+/*--------------------------BODY-------------------------------*/
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+    scrollbar-width: none;
+}
+
+body, html {
+    /*Settings defaults values for the page*/
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: #EBE3D7;
+    color:  #706457;
+    font-family: MontSerrat, Arial, sans-serif;
+    -ms-overflow-style: none;
+    /*Smooth scroll allows using anchor links with
+    smooth scrolling down to required section*/
+    scroll-behavior: smooth; 
+    -webkit-scroll-behavior: smooth; /* Safari */
+    ::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure scrolling still works */
+body {
+    overflow: auto;
+}
+}
+
+
+h1, h2, h3 {    
+    font-weight: normal; /*Removing the default bold weight on titles*/
+    padding: 0;
+    margin: 0;
+    font-family: KaiseiTokumin, Georgia, serif;
+    color:  #706457;
+}
+
+h2 {
+    padding: 1.7em 2em 0 2em;
+    font-size: 2.5em;   
+}
+
+/*Media query for adjusting the spacing around titles on small screens*/
+@media screen and (max-width: 900px){
+    h2{
+        padding-top:1em;
+        font-size: 2em;
+        padding-left: 1em;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.gallery, .amenities, .booking, .things-to-do {
+    min-height: 60vh;
+}
+
+/*Setting the max width of content to stop stretching effect on ultrawide screens*/
+.about, .amenities {
+    max-width: 1366px;
+    margin:auto;
+}
+
+.content-wrapper{
+    max-width: 1366px;
+    margin:auto;
+}
+
+.light-section {
+    background-color: #FFFAF6;
+    color: #C1AC96;
+}
+
+.dark-section {
+    background-color: #C1AC96;
+    color: #FFFAF6;
+}
+
+.dark-section h2 {
+    color: #FFFAF6;
+
+}
+
+.booking-btn {
+    background: linear-gradient(#F9C36D, #ffb237);
+    border: solid 2px #F9C36D;
+    padding: 0.5em 2em;
+    border-radius: 1em;
+    font-size: 1em;
+    color: #706457;
+}
+
+.booking-btn:hover {
+    background: transparent;
+}
+
+
+
+
+/*--------------------------HERO-------------------------------*/
+.hero{
+    /*2 heights are specified, the first height uses the SVH units for small viewport height
+    which is used for mobile devices that have address bars that hides on scroll*/
+    height: 100svh;
+    height: 100vh; 
+
+    /*Houzz. "Old Barns Become an Airy Modern Rustic Home." Accessed October 19, 2024.
+    https://www.houzz.com/magazine/houzz-tour-old-barns-become-an-airy-modern-rustic-homestsetivw-
+    vs~172078646. */
+    background: url("../images/property/GateEntry.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/*A translucent overlay is used to reduce the overwhelming effect of the highly 
+saturated photography. This allows users to still see the elements in this section*/
+.overlay{
+    width: 100%;
+    height: 100%;
+
+
+
+    /*Centering elements using flex*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /*Position relative to allow absolute position of children elements */
+    position: relative;
+}
+
+.hero-logo{
+    height: 50svh;
+    height: 50vh;
+    margin-bottom: 0;
+}
+
+
+/*Bouncing effect to guide users to scroll further down the page*/
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.explore-button {
+    position: absolute;
+    bottom: 30px;
+    font-size: 2em;
+    cursor: pointer;    
+    font-family: KaiseiTokumin, Georgia, serif;
+    color:  #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    animation: bounce 2s infinite;
+
+}
+
+/*Text shadow to create a subtle micro interaction and user engagement*/
+.explore-button:hover {
+    text-shadow:0 0 10px white,
+                0 0 20px white;
+}
+
+.explore-icon {
+    filter: invert(100%) brightness(100%);
+    height: 3em;
+    padding: 0;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 1366px){
+    .explore-button {
+        font-size: 1.2em; 
+    }
+}
+
+
+/*--------------------------ABOUT-------------------------------*/
+.about{
+    min-height: 30vh;
+    padding: 4rem 0;
+}
+
+.about h2{
+    padding-top: 0em;
+}
+
+.about-grid{
+    margin: 1em 2em;
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+}
+
+.tile{
+    height:100%;
+    font-size: 0.9em;
+    line-height: 1.6em;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.middle-tile{   
+    display: flex;    
+
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap:2em;    
+}
+
+.tagline{
+    font-size: 2.3em;
+    font-family: KaiseiTokumin, serif;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px){
+    .about-grid{
+        grid-template-columns: 1fr;
+        gap:5em;
+    }
+}
+
+
+/*--------------------------GALLERY-------------------------------*/
+/*Horizontally gallery scroller adapted from Kevin Powell "Create
+a Horizontal Media Scroller with CSS", viewed 13 November 2024,
+https://youtu.be/3yfswsnD2sw?si=DHFHC4J6npC01QLC */
+
+/*The Gallery scroller uses overflow-x and scroll-snap to allow
+users to scroll horizontal through the images*/
+
+
+
+.gallery-scroller{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 65%; /*Column size set to 65% to allow the next image to peek
+    through and guide the user to scroll further*/
+
+    overflow-x:auto;
+    overscroll-behavior-inline: contain;
+
+    z-index: 0;
+}
+
+.gallery-element {
+    height:60vh;
+    object-fit: cover;
+}
+
+.gallery-element img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media screen and (max-width: 360px){
+    .gallery-scroller{
+        grid-auto-columns: 90%;
+    }
+}
+
+/* Utilising the positioning to stack the Gallery title on top of slider */
+.gallery .content-wrapper{
+    position: relative;
+}
+
+.gallery-title-wrapper{
+    position: absolute;
+    z-index: 1; /* Ensures the title appears above the images */
+}
+
+.gallery h2{
+    color: #FFFAF6;
+    text-shadow: 0px 0px 10px rgb(121, 108, 95);
+}
+
+.gallery-chevron {
+    position: absolute;
+    padding: 0 0.2em;
+    top: 50%;
+    height: 3em;
+    filter: invert(100%) brightness(100%);
+    opacity: 0.90;
+}
+.gallery-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 100%; /* Adjust as needed */
+    white-space: nowrap;
+}
+.gallery-container img {
+    max-width: 100%; /* Adjust image sizes */
+    height: auto;
+    margin-right: 10px; /* Space between images */
+}
+.left {
+    left: 0%;
+}
+
+.right {
+    right:0%;
+}
+
+
+.snaps-inline {
+    scroll-snap-type: x mandatory;
+}
+
+.snaps-inline > * {
+    scroll-snap-align: center;
+}
+
+
+/*--------------------------AMENITIES-------------------------------*/
+.amenities {
+    padding: 3rem 0;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 2em;
+}
+
+.image-container {
+    height: 70vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.amenities-image {
+    height: 70%;
+    object-fit: cover;
+    box-shadow: -20px -20px #C1AC96;
+}
+
+
+.amenities-info{
+    padding: 2em;
+}
+
+.amenities-info h2{
+    padding: 0 0 3rem 0;
+}
+
+.description {
+    font-size: 1em;
+    margin: 1em;
+}
+
+.info-tiles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-tile {
+    text-align: center;
+    flex: 1;
+}
+
+.amenities-icons {
+    filter: invert(40%) sepia(7%) saturate(924%) hue-rotate(350deg) brightness(95%) contrast(88%); 
+    height: 3rem;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: #c1ac96;
+    margin: 1em;
+}
+
+.info-tile p {
+    font-size: 1em;
+    color: #706457;
+    margin: 0;
+}
+
+.amenities-list {
+    list-style: circle;
+    padding: 2em;
+    color: #706457;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.amenities-list li {
+    margin-bottom: 0.5rem;
+}
+
+
+.right-align{
+    display:inline-block;
+    margin-left: 66%;
+}
+
+
+@media screen and (max-width: 900px) {
+    .amenities-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 0
+    }
+
+    .image-container {
+        height: 50vh; 
+    }
+
+    .info-tile p {
+        font-size: 0.9em;
+    }
+
+    .right-align{
+        margin-left: 40%;
+    }
+}
+
+
+/*--------------------------THINGS TO DO-------------------------------*/
+/* Things to do slider adapted from Skillthrive "HTML and CSS Project 
+Tutorial: Pure CSS Image Slider", viewed November 17 2024:
+https://youtu.be/McPdzhLRzCg?si=J9UiAn1DHpnMAEsm */
+
+.things-to-do{
+    position: relative; 
+}
+
+.things-title-wrapper{
+    position: absolute;
+    z-index: 1; /* Ensures the title appears above the images */
+}
+
+.things-to-do h2{
+    color: #FFFAF6;
+    text-shadow: 0px 0px 10px rgb(121, 108, 95);
+}
+
+.slider-nav{
+    display: flex;
+    gap: 2rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+
+    border: solid 3px #FFFAF6;
+    text-shadow: 0px 0px 10px rgb(121, 108, 95);
+
+    opacity: 0.75;
+    transition: opacity ease-in-out 250ms;
+}
+
+.slider-nav a:hover{
+    opacity: 1;
+    background-color: #FFFAF6;
+}
+
+.things-slider {
+    height: 60vh;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;  /* 100% for slides to display one at a time*/
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-behavior: smooth; 
+}
+
+/*Scrollbars are hidden for a cleaner look as the slider has navigation dots*/
+.things-slider::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.things {
+    scrollbar-width: none;  /* Mozilla*/
+}
+
+.slide{
+    height: 60vh;
+    object-fit: cover;
+    position:relative;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    position: relative;
+    z-index: 0;
+}
+
+h3 {
+    color: #FFFAF6;
+
+}
+
+.slide-text{
+    position: absolute;
+    bottom: 5%; /* Reduce bottom space to prevent overlap */
+    left: 5%;
+    width: auto; /* Allow dynamic width */
+    max-width: 40%; /* Prevent too-wide text */
+    background: rgba(193, 172, 150, 0.8);
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.text-2{
+    bottom: 10%;
+    left: 60%;
+}
+
+@media screen and (max-width: 1024px) {
+    .things, .things-slider, .slide {
+        height: 80vh;
+
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .things, .things-slider, .slide {
+        height: 80vh;
+
+    }
+
+
+    .slide-text{
+        line-height: 1.5em;
+        font-size: 0.9em;
+        width: 80%;
+    }
+
+    .text
+
+    .text-2, .slide-text {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/*--------------------------BOOKING-------------------------------*/
+.booking {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.booking-grid {
+    gap: 1em;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+        padding: 2em;
+        gap: 0;
+    }
+    .date-row {
+        gap: 2em;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.form-container {
+    display:flex;
+    flex-direction:column;
+    gap: 2em;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+input[type=text], input[type=email], input[type=tel] {
+    width: 100%;
+}
+
+input[type=date] {
+    padding: 0 2em;
+    font-size: 1.2em;
+}
+
+input {
+    height: 2em;
+    border: none;
+    border-bottom: 1px solid #c1ac96;
+    background: transparent;
+    color: #706457; 
+}
+
+input:after{
+    background: #c1ac96;
+}
+
+input:focus{
+    background: #FFFAF6;
+}
+
+.date-row {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 3em;
+}
+
+.booking-grid img{
+    box-shadow: 20px -20px #EBE3D7;
+}
+
+.booking-grid > .image-container {
+    width: 100%;
+}
+
+.form-container > .booking-btn {
+    width: 50%;
+    align-self: center;
+    font-size: 1.2em;
+}
+
+/*--------------------------CONTACT-------------------------------*/
+.contact-flex{
+    padding: 5em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2em;
+}
+
+.contact-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.contact-left img {
+    filter: brightness(0) saturate(100%) invert(96%) sepia(36%) saturate(680%) hue-rotate(292deg) brightness(111%) contrast(101%);
+}
+
+.contact-logo {
+    height: 10em;
+}
+
+.contact-icon {
+    height: 3em;
+    padding: 1em 1em;
+    transition: opacity ease-in-out 250ms;
+}
+
+.contact-right {
+    width: 100%;
+    height: 400px;
+}
+
+.map{
+    width:100%; 
+    height:100%;
+}
+
+@media screen and (max-width: 900px) {
+    .contact-flex{
+        flex-direction: column;
+    }
+}
+
+.contact-icon:hover {
+    filter: brightness(0) saturate(100%) invert(91%) sepia(7%) saturate(558%) hue-rotate(335deg) brightness(106%) contrast(84%);
+}
+
+/*--------------------------FOOTER-------------------------------*/
+footer {
+    width: 100%;
+    background-color: #FFFAF6;
+    color: #C1AC96;
+
+    margin: 0;
+    padding: 0;
+}
+
+footer p{
+    margin: 0 auto 0 auto;
+    padding: 1em;
+    max-width: 900px;
+    text-align: justify;
+    font-style: italic;
+}
+
