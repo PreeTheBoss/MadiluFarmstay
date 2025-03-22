@@ -575,21 +575,14 @@ h3 {
         background-attachment: scroll; /* Prevents background issues on mobile */
     }
 }
-@media screen and (max-width: 1024px) {
-    .things, .things-slider, .slide {
-        min-height: 80vh;
-
-    }
-}
-
 @media screen and (max-width: 900px) {
     .things, .things-slider, .slide {
-        min-height: 80vh;
-        background-size: cover;
-        background-position: center center;
+        min-height: 80vh; /* Ensures it doesn't shrink */
+        background-size: contain; /* Adjusts size to fit without cropping */
+        background-position: center center !important; /* Forces center alignment */
+        background-repeat: no-repeat; /* Prevents repetition */
     }
 }
-
 
     .slide-text{
         line-height: 1.5em;
