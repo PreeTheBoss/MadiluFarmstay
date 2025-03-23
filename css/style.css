@@ -133,9 +133,6 @@ saturated photography. This allows users to still see the elements in this secti
 .overlay{
     width: 100%;
     height: 100%;
-
-
-
     /*Centering elements using flex*/
     display: flex;
     flex-direction: column;
@@ -567,7 +564,7 @@ h3 {
     left: 60%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .hero {
         background-position: center center; /* Ensures it stays centered */
         background-attachment: scroll; /* Prevents background issues on mobile */
