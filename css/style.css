@@ -564,20 +564,18 @@ h3 {
     left: 60%;
 }
 
-@media (max-width: 900px) {
-    .hero {
-        background-position: center center; /* Ensures it stays centered */
-        background-attachment: scroll; /* Prevents background issues on mobile */
+@media screen and (max-width: 1024px) {
+    .things, .things-slider, .slide {
+        height: 80vh;
+
     }
 }
+
 @media screen and (max-width: 900px) {
     .things, .things-slider, .slide {
-        min-height: 80vh; /* Ensures it doesn't shrink */
-        background-size: contain; /* Adjusts size to fit without cropping */
-        background-position: center center !important; /* Forces center alignment */
-        background-repeat: no-repeat; /* Prevents repetition */
+        height: 80vh;
+
     }
-}
 
     .slide-text{
         line-height: 1.5em;
