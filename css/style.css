@@ -196,12 +196,6 @@ saturated photography. This allows users to still see the elements in this secti
     padding: 0;
     margin: 0;
 }
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
 @media screen and (max-width:100%){
     .explore-button {
         font-size: 1.2em; 
