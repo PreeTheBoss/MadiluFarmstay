@@ -155,6 +155,7 @@ saturated photography. This allows users to still see the elements in this secti
     height: 50svh;
     height: 50vh;
     margin-bottom: 0;
+    visibility: hidden;
 }
 
 
