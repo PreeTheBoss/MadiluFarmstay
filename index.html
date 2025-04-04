@@ -3,6 +3,7 @@
 <!-- Specifies the language of the website as English to help search engine optimisation and screen readers -->
 <html lang="en">
 <!-- Head contains information about the webpage not visible to the user on the page -->
+
 <head>
     <!-- Allows set of characters addtional to standard ASCII characters to be used on website -->
     <meta charset="utf-8">
@@ -13,9 +14,8 @@
     <title>Madilu Farmstay</title>
 
     <!-- Metadata for search engine optimisation -->
-     <meta name="author" content="Marius Gontran">
-    <meta name="description"
-        content="Discover Madilu FarmStay, luxury rustic accomodation in the Blue Mountains.">
+    <meta name="author" content="Marius Gontran">
+    <meta name="description" content="Discover Madilu FarmStay, luxury rustic accomodation in the Blue Mountains.">
     <meta name="keywords" content=" Madilu , Farm Stay, Luxury, Rustic Escape, Accomodation, Blue Mountains, Sydney, Vacation Rental, AirBNB,
         Family friendly getaway, Tranquil retreat, Plunge pool, farm animals, modern amenities, nature retreat, romantic escape,
         scenic view, interior design, relaxation destination">
@@ -27,9 +27,12 @@
 
     <!-- Using a customer favicon to show on the browser title bar  -->
     <link rel="icon" href="images/logo/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 </head>
 
 <!-- Body contains all the visible content of the webpage, subdivided in different sections -->
+
 <body>
     <main>
         <!-- Hero section covering whole screen -->
@@ -84,48 +87,72 @@
         </section>
 
         <!-- Gallery section -->
-      
-        <section class="gallery light-section">
 
+        <!-- REPLACED GALLERY SECTION -->
+        <section class="gallery light-section" id="gallery">
             <div class="content-wrapper">
-                <!-- Gallery section title-->
-                <div class="gallery-title-wrapper" id="gallery-scroller">
-                    <h2>Gallery</h2>
-                </div>
+                <h2>Gallery</h2>
+                <div class="container">
+                    <div class="slide">
+                        <!-- Replace the background-image paths with your actual paths -->
+                        <div class="item" style="background-image: url('images/property/GateEntry.jpg');">
+                            <div class="content">
+                                <div class="name">Madilu</div>
+                                <div class="des">The Ultimate Destination</div>
+                            </div>
+                        </div>
+                        <div class="item" style="background-image: url('images/property/home-8.jpg');">
+                            <div class="content">
+                                <div class="name">Madilu</div>
+                                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" style="background-image: url('images/property/home-1.jpg');">
+                            <div class="content">
+                                <div class="name">Madilu</div>
+                                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" style="background-image: url('images/property/home-2.jpg');">
+                            <div class="content">
+                                <div class="name">Madilu</div>
+                                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" style="background-image: url('images/property/home-3.jpg');">
+                            <div class="content">
+                                <div class="name">Madilu</div>
+                                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" style="background-image: url('images/property/home-5.jpg');">
+                            <div class="content">
+                                <div class="name">Madilu</div>
+                                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item" style="background-image: url('images/property/home-7.jpg');">
+                            <div class="content">
+                                <div class="name">Madilu</div>
+                                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Left and right arrows for Gallery slider to indicate horizontal scrolling. Arrows
-                 are layered on top of image using css to always be visible. -->
-                 <!-- SVGRepo. "Chevron Left Square SVG Vector" Accessed November 13, 2024.
-                https://www.svgrepo.com/svg/522036/chevron-left-square  -->
-                <img class="gallery-chevron left" src="images/icons/chevron-left.svg" alt="Chevron pointing left">
-                <img class="gallery-chevron right" src="images/icons/chevron-right.svg" alt="Chevron pointing left">
-                <!-- Gallery slider -->
-                <div class="gallery-scroller snaps-inline">
-                    <div class="gallery-element">
-                        <img src="images/property/home-8.jpg" alt="Picture of the interior, displaying the open plan layout and mezzanine lounge area">
+                    <div class="button">
+                        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
-                    <div class="gallery-element">
-                        <img src="images/property/home-7.jpg" alt="Interior picture, diplaying lounge area and extenal foliage visible through windows">
-                    </div>
-                    <div class="gallery-element">
-                        <img src="images/property/home-6.jpg" alt="Interior picture, open plan kitchen with mezzanine lounge area and study visible">
-                    </div>
-                    <div class="gallery-element">
-                        <img src="images/property/home-4.jpg" alt="Exterior picture, front of the house. Gravel footpaths and native plants garden.">
-                    </div>
-                    <div class="gallery-element">
-                        <img src="images/property/home-3.jpg" alt="Exterior picture, side of the house. Cottage garden.">
-                    </div>
-                    <div class="gallery-element">
-                        <img src="images/property/home-2.jpg" alt="Interior picture, lounge sitting area.">
-                    </div>
-                    <div class="gallery-element">
-                        <img src="images/property/madilugate.jpg" alt="Interior picture, open play layout kitchen and living room with fireplace">
-                    </div>
-                    
                 </div>
             </div>
         </section>
+
 
         <!-- Amenities section -->
         <section class="amenities" id="amenities">
@@ -136,7 +163,8 @@
                     <!-- Houzz. "Old Barns Become an Airy Modern Rustic Home." Accessed October 19, 2024.
                     https://www.houzz.com/magazine/houzz-tour-old-barns-become-an-airy-modern-rustic-homestsetivw-
                     vs~172078646. -->
-                    <img class="amenities-image" src="images/property/home-5.jpg" alt="Picture of masterbedroom ensuite">
+                    <img class="amenities-image" src="images/property/home-5.jpg"
+                        alt="Picture of masterbedroom ensuite">
                 </div>
 
                 <!-- Right section: info-->
@@ -156,13 +184,13 @@
                         </div>
                         <div class="info-tile">
                             <!-- SVGRepo. "Bed Double SVG Vector" Accessed November 14, 2024.
-                            https://www.svgrepo.com/svg/490555/bed-double  -->                            
+                            https://www.svgrepo.com/svg/490555/bed-double  -->
                             <img src="images/icons/bed.svg" class="amenities-icons" alt="Icon for number of bedrooms">
                             <p>4 bedrooms</p>
                         </div>
                         <div class="info-tile">
                             <!-- SVGRepo. "Bathtub Mirror SVG Vector" Accessed November 14, 2024.
-                            https://www.svgrepo.com/svg/490549/bathtub-mirror  -->                            
+                            https://www.svgrepo.com/svg/490549/bathtub-mirror  -->
                             <img src="images/icons/bath.svg" class="amenities-icons" alt="Icon for number of bathrooms">
                             <p>4 bathrooms</p>
                         </div>
@@ -208,7 +236,7 @@
                         https://stock.adobe.com/au/images/portrait-of-anglo-nubian-goat-with-herbs-in-themouth/
                         199776985?prev_url=detail. -->
                         <img src="images/things-to-do/goat.jpeg" alt="Picture of Rosie The Goat">
-                        
+
                         <div class="slide-text text-1">
                             <h3>Meet Rosie The Goat</h3>
                             <p>During your visit, don’t miss the chance to meet Rosie, our lovable and playful goat!
@@ -230,7 +258,7 @@
                                 at our doorstep.
                                 Whether you’re planning a day hike, exploring the vibrant visitor centers,
                                 this remarkable landscape offers unforgettable experiences for every adventurer.
-                            </p>               
+                            </p>
                         </div>
                     </div>
 
@@ -266,37 +294,45 @@
         <section class="booking light-section" id="booking">
             <div class="content-wrapper">
                 <div class="booking-grid">
-                    <form class="form-container" id="bookingForm">
+                    <form action="https://formspree.io/f/movedkrb" method="POST" class="form-container"
+                        id="bookingForm">
                         <h2>Book Now</h2>
                         <div class="input-group">
                             <label>Name</label>
-                            <input type="text" id="name" required>
+                            <input type="text" name="Name" placeholder="Enter Your Full Name" id="name" required>
                         </div>
-        
+
                         <div class="input-group">
                             <label>Email</label>
-                            <input type="email" id="email" required>
+                            <input type="email" name="email" placeholder="Enter your Email" id="email" required>
                         </div>
-        
+
                         <div class="input-group">
                             <label>Phone</label>
-                            <input type="tel" id="phone" required>
+                            <input type="tel" placeholder="Enter your Mobile Number" name="Phone" id="phone" required
+                                onfocus="this.placeholder=''" onblur="this.placeholder='Type your Number Here.'">
                         </div>
-        
+                        <div class="input-group">
+                            <label>Message</label>
+                            <input type="text" placeholder="Got something to say?" name="Message" id="textplace"
+                                required onfocus="this.placeholder=''"
+                                onblur="this.placeholder='Type your message here.'">
+                        </div>
+
                         <div class="date-row">
                             <div>
                                 <label>From Date</label>
-                                <input type="date" id="fromDate" required>
+                                <input type="date" name="From Date" id="fromDate" required>
                             </div>
                             <div>
                                 <label>To Date</label>
-                                <input type="date" id="toDate" required>
+                                <input type="date" name="To Date" id="toDate" required>
                             </div>
                         </div>
-        
+
                         <button class="booking-btn" type="submit">Submit</button>
                     </form>
-        
+
                     <!-- Notification -->
                     <div id="notification" class="hidden">
                         Thank you for submitting! A confirmation email has been sent.
@@ -304,7 +340,7 @@
                 </div>
             </div>
         </section>
-        
+
         <style>
             #notification {
                 display: none;
@@ -315,74 +351,24 @@
                 text-align: center;
                 border-radius: 5px;
             }
+
             .hidden {
                 display: none;
             }
         </style>
+
         
-        <script>
-            document.getElementById("bookingForm").addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevent page refresh
-        
-                // Get form data
-                let formData = {
-                    name: document.getElementById("name").value,
-                    email: document.getElementById("email").value,
-                    phone: document.getElementById("phone").value,
-                    fromDate: document.getElementById("fromDate").value,
-                    toDate: document.getElementById("toDate").value
-                };
-        
-                // Send form data to the backend
-                fetch("send_email.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(formData)
-                })
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("notification").style.display = "block"; // Show notification
-                    setTimeout(() => document.getElementById("notification").style.display = "none", 5500);
-                    document.getElementById("bookingForm").reset(); // Reset form
-                })
-                .catch(error => console.error("Error:", error));
-            });
-        </script>
-        <script>
-            document.querySelector(".form-container").addEventListener("submit", async function(event) {
-                event.preventDefault();
-                
-                // Collect form data
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData);
-            
-                // Send data to backend
-                const response = await fetch("http://localhost:5500/send-email", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data)
-                });
-            
-                if (response.ok) {
-                    alert("Thanks for submitting!");
-                } else {
-                    alert("Submission failed, please try again.");
-                }
-            });
-        </script>
         
 
-                    <!-- Right side: Image -->
-                    <div class="image-container">
-                        <!-- Houzz. "Old Barns Become an Airy Modern Rustic Home." Accessed October 19, 2024.
+        <div class="image-container">
+            <!-- Houzz. "Old Barns Become an Airy Modern Rustic Home." Accessed October 19, 2024.
                         https://www.houzz.com/magazine/houzz-tour-old-barns-become-an-airy-modern-rustic-homestsetivw-
                         vs~172078646. -->
-                        <img class="amenities-image" src="images/property/home-9.jpg" alt="Picture of house interior, living room with fireplace">
-                    </div>
-                </div>
-            </div>
+            <img class="amenities-image" src="images/property/home-9.jpg"
+                alt="Picture of house interior, living room with fireplace">
+        </div>
+        </div>
+        </div>
         </section>
 
         <!-- Contact section -->
@@ -394,8 +380,9 @@
                     <div class="contact-left">
                         <!-- Logo links back to top of the page -->
                         <a href="#">
-                            <img class="contact-logo" src="images/logo/Madilu-logo-square.png" alt="Lilac Valley Farm Stay logo">
-                        </a>                        
+                            <img class="contact-logo" src="images/logo/Madilu-logo-square.png"
+                                alt="Lilac Valley Farm Stay logo">
+                        </a>
                         <p>Madilu Farmstay
                             <br>Kolar - Chintamani Rd, Kithandur, Karnataka 563126
                         </p>
@@ -405,13 +392,13 @@
                         <!-- Social Media links-->
                         <div>
                             <!-- Facebook -->
-                             <!-- SVGRepo. "Facebook SVG Vector" Accessed November 18, 2024.
-                            https://www.svgrepo.com/svg/521654/facebook  -->                             
+                            <!-- SVGRepo. "Facebook SVG Vector" Accessed November 18, 2024.
+                            https://www.svgrepo.com/svg/521654/facebook  -->
                             <a class="contact-link" href="https://www.facebook.com/"><img class="contact-icon"
                                     src="images/icons/facebook.svg" alt="DESCRIPTION"></a>
                             <!-- Instagram -->
-                             <!-- SVGRepo. "Instagram SVG Vector " Accessed November 18, 2024.
-                            https://www.svgrepo.com/svg/521711/instagram  -->                             
+                            <!-- SVGRepo. "Instagram SVG Vector " Accessed November 18, 2024.
+                            https://www.svgrepo.com/svg/521711/instagram  -->
                             <a class="contact-link" href="https://www.instagram.com/"><img class="contact-icon"
                                     src="images/icons/insta.svg" alt="DESCRIPTION"></a>
                         </div>
@@ -420,17 +407,56 @@
                     <div class="contact-right">
                         <!-- Embedded Google Map -->
                         <iframe class="map"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31562.79601675284!2d78.1154!3d13.2498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDE0JzU5LjMiTiA3OMKwMDYnNTUuNCJF!5e0!3m2!1sen!2sau!4v1731891935851!5m2!1sen!2sau"
-    style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31562.79601675284!2d78.1154!3d13.2498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDE0JzU5LjMiTiA3OMKwMDYnNTUuNCJF!5e0!3m2!1sen!2sau!4v1731891935851!5m2!1sen!2sau"
+                            style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
 
                     </div>
                 </div>
             </div>
         </section>
+        <button id="scrollTopBtn" class="scroll-top" onclick="scrollToTop()">↑</button>
 
+        <script>
+          const scrollTopBtn = document.getElementById("scrollTopBtn");
+      
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+              scrollTopBtn.classList.add("show");
+            } else {
+              scrollTopBtn.classList.remove("show");
+            }
+          });
+      
+          function scrollToTop() {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+        </script>
     </main>
 </body>
+
+<script>
+    let next = document.querySelector('.next');
+    let prev = document.querySelector('.prev');
+
+    next.addEventListener('click', function () {
+        let items = document.querySelectorAll('.item');
+        document.querySelector('.slide').appendChild(items[0]);
+    });
+
+    prev.addEventListener('click', function () {
+        let items = document.querySelectorAll('.item');
+        document.querySelector('.slide').prepend(items[items.length - 1]);
+    });
+  // This event triggers every time the page is shown, including when coming back from a submission.
+  window.addEventListener("pageshow", function(event) {
+    document.getElementById("bookingForm").reset();
+  });
+
+</script>
 
 </html>

@@ -1,21 +1,21 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const galleryScroller = document.querySelector(".gallery-scroller");
-    const leftArrow = document.querySelector(".gallery-chevron.left");
-    const rightArrow = document.querySelector(".gallery-chevron.right");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const galleryScroller = document.querySelector(".gallery-scroller");
+//     const leftArrow = document.querySelector(".gallery-chevron.left");
+//     const rightArrow = document.querySelector(".gallery-chevron.right");
 
-    // Set the scroll amount (adjust as needed)
-    const scrollAmount = 300;
+//     // Set the scroll amount (adjust as needed)
+//     const scrollAmount = 300;
 
-    // Scroll left when left chevron is clicked
-    leftArrow.addEventListener("click", function () {
-        galleryScroller.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    });
+//     // Scroll left when left chevron is clicked
+//     leftArrow.addEventListener("click", function () {
+//         galleryScroller.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+//     });
 
-    // Scroll right when right chevron is clicked
-    rightArrow.addEventListener("click", function () {
-        galleryScroller.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    });
-});
+//     // Scroll right when right chevron is clicked
+//     rightArrow.addEventListener("click", function () {
+//         galleryScroller.scrollBy({ left: scrollAmount, behavior: "smooth" });
+//     });
+// });
 
 document.getElementById("bookingForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
