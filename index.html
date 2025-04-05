@@ -331,7 +331,7 @@
                         </div>
                         
                         <script>
-                            // JavaScript to ensure From Date is not later than To Date
+                            // JavaScript to ensure From Date and To Date are not the same and To Date is not before From Date
                             const fromDateInput = document.getElementById('fromDate');
                             const toDateInput = document.getElementById('toDate');
                             
@@ -341,17 +341,25 @@
                             function validateDate() {
                                 const fromDate = new Date(fromDateInput.value);
                                 const toDate = new Date(toDateInput.value);
+                        
+                                // Strip the time portion by setting the time to midnight for both dates
+                                fromDate.setHours(0, 0, 0, 0);
+                                toDate.setHours(0, 0, 0, 0);
                                 
-                                if (fromDate && toDate && fromDate > toDate) {
-                                    alert("The From Date cannot be later than the To Date.");
-                                    toDateInput.setCustomValidity("Invalid Date");
-                                    toDateInput.value = '';
-                                } else {
-                                    toDateInput.setCustomValidity("");
-                                
+                                if (fromDate && toDate) {
+                                    // Check if To Date is earlier or the same as From Date
+                                    if (toDate <= fromDate) {
+                                        let errorMessage = toDate.getTime() === fromDate.getTime() ? 
+                                            "Sorry, we only accept bookings for a minimum of one day." : 
+                                            "The To Date cannot be earlier than the From Date.";
+                                        
+                                        alert(errorMessage);
+                                        toDateInput.value = '';  // Clear the To Date field
+                                    }
                                 }
                             }
-                        </script>
+                        </script>                        
+                        
 
                         <button class="booking-btn" type="submit">Submit</button>
                     </form>
