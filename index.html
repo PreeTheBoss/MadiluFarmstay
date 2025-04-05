@@ -322,25 +322,21 @@
                         <div class="date-row">
                             <div>
                                 <label for="fromDate">From Date</label>
-                                <input type="date" name="fromDate" id="fromDate" required>
+                                <input type="text" name="fromDate" id="fromDate" required>
                             </div>
                             <div>
                                 <label for="toDate">To Date</label>
-                                <input type="date" name="toDate" id="toDate" required>
+                                <input type="text" name="toDate" id="toDate" required>
                             </div>
                         </div>
+                        
+                        <!-- Include Flatpickr CSS and JS -->
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+                        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
                         
                         <script>
                             const fromDateInput = document.getElementById('fromDate');
                             const toDateInput = document.getElementById('toDate');
-                        
-                            // Function to format the date in dd-mm-yyyy format
-                            function formatDate(date) {
-                                const day = String(date.getDate()).padStart(2, '0');
-                                const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
-                                const year = date.getFullYear();
-                                return `${day}-${month}-${year}`;
-                            }
                         
                             // Function to set the min date for the From Date and update the To Date dynamically
                             function setMinDateForFromDate() {
@@ -365,30 +361,27 @@
                                 }
                             }
                         
-                            // Event listeners to update To Date dynamically when From Date changes
+                            // Apply flatpickr to both From and To Date fields with dd-mm-yyyy format
+                            flatpickr(fromDateInput, {
+                                dateFormat: "d-m-Y",  // Use dd-mm-yyyy format for display
+                                minDate: "today",  // Set the minimum date for From Date as today
+                                onChange: updateToDateMin
+                            });
+                        
+                            flatpickr(toDateInput, {
+                                dateFormat: "d-m-Y",  // Use dd-mm-yyyy format for display
+                                minDate: "today",  // Set the minimum date for To Date as today
+                            });
+                        
+                            // Optional: Listen for changes on From Date and update To Date dynamically
                             fromDateInput.addEventListener('change', updateToDateMin);
                         
                             // Initialize the page with today's minimum date for From Date
                             setMinDateForFromDate();
                             updateToDateMin();  // Ensure To Date's min is set when the page loads
-                        
-                            // Optional: Reset the form and update the min values accordingly
-                            document.querySelector('form').addEventListener('reset', () => {
-                                setMinDateForFromDate();  // Reset From Date min to today
-                                updateToDateMin();  // Recalculate the To Date min value
-                            });
-                        
-                            // Example of how you might display the date in dd-mm-yyyy format
-                            // Set an event to display in the desired format (for example, in a div or label)
-                            fromDateInput.addEventListener('change', function() {
-                                const date = new Date(fromDateInput.value);
-                                if (fromDateInput.value) {
-                                    const formattedDate = formatDate(date);
-                                    console.log(`From Date (formatted): ${formattedDate}`); // You can display it elsewhere
-                                }
-                            });
-                        </script>                                                        
-                        
+                        </script>
+                                                                               
+
                         <button class="booking-btn" type="submit">Submit</button>
                     </form>
 
