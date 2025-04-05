@@ -276,6 +276,7 @@ color. */
     border-radius: 1em;
     font-size: 1em;
     color: #706457;
+    text-align: center;
 }
 
 .booking-btn:hover {
@@ -600,9 +601,10 @@ users to scroll horizontal through the images*/
 }
 
 
-.right-align{
-    display:inline-block;
-    margin-left: 66%;
+.right-align {
+    display:flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */          /* Full viewport height for vertical centering */
 }
 
 
@@ -637,13 +639,13 @@ https://youtu.be/McPdzhLRzCg?si=J9UiAn1DHpnMAEsm */
 }
 
 .things-title-wrapper{
-    position: absolute;
+    position: relative;
     z-index: 1; /* Ensures the title appears above the images */
 }
 
-.things-to-do h2{
+.things-to-do h2 {
     color: #FFFAF6;
-    text-shadow: 0px 0px 10px rgb(121, 108, 95);
+   /* text-shadow: 0px 0px 10px rgb(121, 108, 95);*/
 }
 
 .slider-nav{

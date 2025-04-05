@@ -331,34 +331,37 @@
                         </div>
                         
                         <script>
-                            // JavaScript to ensure From Date and To Date are not the same and To Date is not before From Date
                             const fromDateInput = document.getElementById('fromDate');
                             const toDateInput = document.getElementById('toDate');
-                            
-                            fromDateInput.addEventListener('change', validateDate);
-                            toDateInput.addEventListener('change', validateDate);
-                            
-                            function validateDate() {
-                                const fromDate = new Date(fromDateInput.value);
-                                const toDate = new Date(toDateInput.value);
                         
-                                // Strip the time portion by setting the time to midnight for both dates
-                                fromDate.setHours(0, 0, 0, 0);
-                                toDate.setHours(0, 0, 0, 0);
-                                
-                                if (fromDate && toDate) {
-                                    // Check if To Date is earlier or the same as From Date
-                                    if (toDate <= fromDate) {
-                                        let errorMessage = toDate.getTime() === fromDate.getTime() ? 
-                                            "Sorry, we only accept bookings for a minimum of one day." : 
-                                            "The To Date cannot be earlier than the From Date.";
-                                        
-                                        alert(errorMessage);
-                                        toDateInput.value = '';  // Clear the To Date field
-                                    }
+                            // Function to set the min date for the From Date and update the To Date dynamically
+                            function setMinDateForFromDate() {
+                                const today = new Date();
+                                // Format today to 'YYYY-MM-DD' to match the date input format
+                                const todayFormatted = today.toISOString().split('T')[0];
+                                fromDateInput.setAttribute('min', todayFormatted); // Set min for From Date to today
+                            }
+                        
+                            // Function to update the minimum date for the To Date based on the selected From Date
+                            function updateToDateMin() {
+                                const fromDate = new Date(fromDateInput.value);
+                                if (fromDate) {
+                                    // Set the min date of To Date to the day after From Date
+                                    fromDate.setDate(fromDate.getDate() + 1);  // Add one day to From Date
+                                    const minDate = fromDate.toISOString().split('T')[0]; // Convert to YYYY-MM-DD format
+                                    toDateInput.setAttribute('min', minDate); // Update To Date min date
                                 }
                             }
-                        </script>                        
+                        
+                            // Event listeners to update To Date dynamically when From Date changes
+                            fromDateInput.addEventListener('change', updateToDateMin);
+                        
+                            // Initialize the page with today's minimum date for From Date
+                            setMinDateForFromDate();
+                            updateToDateMin();  // Ensure To Date's min is set when the page loads
+                        </script>
+                        
+                                                
                         
 
                         <button class="booking-btn" type="submit">Submit</button>
