@@ -334,11 +334,18 @@
                             const fromDateInput = document.getElementById('fromDate');
                             const toDateInput = document.getElementById('toDate');
                         
+                            // Function to format the date in dd-mm-yyyy format
+                            function formatDate(date) {
+                                const day = String(date.getDate()).padStart(2, '0');
+                                const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+                                const year = date.getFullYear();
+                                return `${day}-${month}-${year}`;
+                            }
+                        
                             // Function to set the min date for the From Date and update the To Date dynamically
                             function setMinDateForFromDate() {
                                 const today = new Date();
-                                // Format today to 'YYYY-MM-DD' to match the date input format
-                                const todayFormatted = today.toISOString().split('T')[0];
+                                const todayFormatted = today.toISOString().split('T')[0]; // yyyy-mm-dd format
                                 fromDateInput.setAttribute('min', todayFormatted); // Set min for From Date to today
                             }
                         
@@ -348,8 +355,13 @@
                                 if (fromDate) {
                                     // Set the min date of To Date to the day after From Date
                                     fromDate.setDate(fromDate.getDate() + 1);  // Add one day to From Date
-                                    const minDate = fromDate.toISOString().split('T')[0]; // Convert to YYYY-MM-DD format
+                                    const minDate = fromDate.toISOString().split('T')[0]; // Convert to yyyy-mm-dd format
                                     toDateInput.setAttribute('min', minDate); // Update To Date min date
+                                } else {
+                                    // If no From Date is selected, reset the min date for To Date
+                                    const today = new Date();
+                                    const todayFormatted = today.toISOString().split('T')[0]; // yyyy-mm-dd format
+                                    toDateInput.setAttribute('min', todayFormatted); // Ensure To Date can't go before today
                                 }
                             }
                         
@@ -359,11 +371,24 @@
                             // Initialize the page with today's minimum date for From Date
                             setMinDateForFromDate();
                             updateToDateMin();  // Ensure To Date's min is set when the page loads
-                        </script>
                         
-                                                
+                            // Optional: Reset the form and update the min values accordingly
+                            document.querySelector('form').addEventListener('reset', () => {
+                                setMinDateForFromDate();  // Reset From Date min to today
+                                updateToDateMin();  // Recalculate the To Date min value
+                            });
                         
-
+                            // Example of how you might display the date in dd-mm-yyyy format
+                            // Set an event to display in the desired format (for example, in a div or label)
+                            fromDateInput.addEventListener('change', function() {
+                                const date = new Date(fromDateInput.value);
+                                if (fromDateInput.value) {
+                                    const formattedDate = formatDate(date);
+                                    console.log(`From Date (formatted): ${formattedDate}`); // You can display it elsewhere
+                                }
+                            });
+                        </script>                                                        
+                        
                         <button class="booking-btn" type="submit">Submit</button>
                     </form>
 
